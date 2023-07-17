@@ -59,9 +59,7 @@ public class GitHubReactionsTest {
 
     @Test
     public void shouldWriteJson() throws IOException {
-        var reactions = GitHubReactions.get(
-                URL, TOTAL_COUNT, PLUS_1_COUNT, MINUS_1_COUNT, LAUGH_COUNT,
-                HOORAY_COUNT, CONFUSED_COUNT, HEART_COUNT, ROCKET_COUNT, EYES_COUNT);
+        var reactions = getReactions();
         var content = tester.write(reactions);
         assertThat(content).hasJsonPathStringValue("url", URL);
         assertThat(content).hasJsonPathNumberValue("total_count", TOTAL_COUNT);
@@ -75,6 +73,18 @@ public class GitHubReactionsTest {
         assertThat(content).hasJsonPathNumberValue("eyes", EYES_COUNT);
     }
 
+    public static GitHubReactions getReactions() {
+        return GitHubReactions.get(URL,
+                                   TOTAL_COUNT,
+                                   PLUS_1_COUNT,
+                                   MINUS_1_COUNT,
+                                   LAUGH_COUNT,
+                                   HOORAY_COUNT,
+                                   CONFUSED_COUNT,
+                                   HEART_COUNT,
+                                   ROCKET_COUNT,
+                                   EYES_COUNT);
+    }
 
 
     @Test

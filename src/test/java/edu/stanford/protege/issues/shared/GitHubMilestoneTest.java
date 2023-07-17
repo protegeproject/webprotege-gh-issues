@@ -40,22 +40,12 @@ public class GitHubMilestoneTest {
 
     protected static final int CLOSED_ISSUES = 2;
 
-    private GitHubUser creator;
+    protected static final GitHubUser CREATOR = GitHubUserTest.getUser();
 
     @Autowired
     private JacksonTester<GitHubMilestone> tester;
 
-    @BeforeEach
-    void setUp() {
-        creator = GitHubUser.get("octocat",
-                                 1,
-                                 "MDQ6VXNlcjE=",
-                                 "https://github.com/images/error/octocat_happy.gif",
-                                 "https://api.github.com/users/octocat",
-                                 "https://github.com/octocat",
-                                 GitHubUserType.USER,
-                                 false);
-    }
+
 
 
     @Test
@@ -68,7 +58,7 @@ public class GitHubMilestoneTest {
             assertThat(milestone.number()).isEqualTo(1);
             assertThat(milestone.state()).isEqualTo(GitHubState.OPEN);
             assertThat(milestone.title()).isEqualTo("v1.0");
-            assertThat(milestone.creator()).isEqualTo(creator);
+            assertThat(milestone.creator()).isEqualTo(CREATOR);
             assertThat(milestone.openIssues()).isEqualTo(4);
             assertThat(milestone.closedIssues()).isEqualTo(8);
             assertThat(milestone.createdAt()).isEqualTo(Instant.parse("2011-04-10T20:09:31Z"));
@@ -117,7 +107,7 @@ public class GitHubMilestoneTest {
         assertThat(milestone.number()).isEqualTo(NUMBER);
         assertThat(milestone.title()).isEqualTo(TITLE);
         assertThat(milestone.description()).isEqualTo(DESCRIPTION);
-        assertThat(milestone.creator()).isEqualTo(creator);
+        assertThat(milestone.creator()).isEqualTo(CREATOR);
         assertThat(milestone.openIssues()).isEqualTo(OPEN_ISSUES);
         assertThat(milestone.closedIssues()).isEqualTo(CLOSED_ISSUES);
         assertThat(milestone.state()).isEqualTo(GitHubState.OPEN);
@@ -127,14 +117,14 @@ public class GitHubMilestoneTest {
         assertThat(milestone.getClosedAt()).isPresent().contains(CLOSED_AT);
     }
 
-    private GitHubMilestone getMilestone() {
+    public static GitHubMilestone getMilestone() {
         return GitHubMilestone.get("https://example.com/milestone/1",
                                    ID,
                                    NODE_ID,
                                    NUMBER,
                                    TITLE,
                                    DESCRIPTION,
-                                   creator,
+                                   CREATOR,
                                    OPEN_ISSUES,
                                    CLOSED_ISSUES,
                                    GitHubState.OPEN,
