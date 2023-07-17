@@ -11,8 +11,12 @@
     <groupId>edu.stanford.protege</groupId>
     <artifactId>webprotege-gh-issues</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+
     <name>webprotege-gh-issues</name>
     <description>webprotege-gh-issues</description>
+
+    <packaging>gwt-lib</packaging>
+
     <properties>
         <java.version>20</java.version>
     </properties>
@@ -46,11 +50,26 @@
             <artifactId>spring-boot-starter-json</artifactId>
         </dependency>
 
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <moduleName>edu.stanford.protege.issues</moduleName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
