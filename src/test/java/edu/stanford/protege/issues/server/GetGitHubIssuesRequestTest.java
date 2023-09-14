@@ -1,5 +1,6 @@
 package edu.stanford.protege.issues.server;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureJson
 class GetGitHubIssuesRequestTest {
 
+    protected static final String EXPECTED_CHANNEL = "webprotege.issues.GetGitHubIssues";
+
     private ProjectId projectId = ProjectId.generate();
 
     private OWLEntity entity;
@@ -43,6 +46,18 @@ class GetGitHubIssuesRequestTest {
         var request = tester.readObject(inputStream);
         assertThat(request.entity()).isEqualTo(entity);
         assertThat(request.entity()).isInstanceOf(OWLClass.class);
+    }
+
+    @Test
+    void shouldCorrectChannel() {
+        var request = new GetGitHubIssuesRequest(projectId, entity);
+        assertThat(request.getChannel()).isEqualTo(EXPECTED_CHANNEL);
+    }
+
+    @Test
+    void shouldHaveCorrectJsonType() {
+        var typeAnno = GetGitHubIssuesRequest.class.getAnnotation(JsonTypeName.class);
+        assertThat(typeAnno.value()).isEqualTo(EXPECTED_CHANNEL);
     }
 
     @Test

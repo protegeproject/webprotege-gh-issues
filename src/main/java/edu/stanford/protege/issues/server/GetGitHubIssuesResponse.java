@@ -2,6 +2,7 @@ package edu.stanford.protege.issues.server;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.issues.shared.GitHubIssue;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.Response;
@@ -23,6 +24,7 @@ import java.util.Objects;
  * @see Response
  * @see GetGitHubIssuesRequest
  */
+@JsonTypeName("webprotege.issues.GetGitHubIssues")
 public record GetGitHubIssuesResponse(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                       @JsonProperty("entity") @Nonnull OWLEntity entity,
                                       @JsonProperty("issues") @Nonnull List<GitHubIssue> issues) implements Response  {

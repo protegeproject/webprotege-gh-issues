@@ -24,14 +24,14 @@ import java.util.Objects;
  * @see Request
  * @see GetGitHubIssuesResponse
  */
-@JsonTypeName("GetIssuesRequest")
+@JsonTypeName(GetGitHubIssuesRequest.CHANNEL)
 public record GetGitHubIssuesRequest(@JsonProperty("projectId") @Nonnull ProjectId projectId,
                                      @JsonProperty("entity") @Nonnull OWLEntity entity) implements ProjectRequest<GetGitHubIssuesResponse> {
 
     /**
      * The communication channel identifier for this type of request.
      */
-    public static final String CHANNEL = "edu.stanford.webprotege.issues.GetIssues";
+    public static final String CHANNEL = "webprotege.issues.GetGitHubIssues";
 
     /**
      * Constructs a new {@code GetIssuesRequest} with the specified OWL entity.
