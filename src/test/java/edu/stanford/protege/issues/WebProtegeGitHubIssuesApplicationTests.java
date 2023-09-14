@@ -1,4 +1,4 @@
-package edu.stanford.protege.issues.shared;
+package edu.stanford.protege.issues;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
