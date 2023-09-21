@@ -37,6 +37,8 @@ public abstract class GitHubIssue implements IsSerializable, Serializable {
 
     public abstract @JsonProperty("user") GitHubUser user();
 
+    public abstract @JsonProperty("html_url") String htmlUrl();
+
     public abstract @JsonProperty("labels") List<GitHubLabel> labels();
 
     public abstract @JsonProperty("state") GitHubState state();
@@ -112,6 +114,7 @@ public abstract class GitHubIssue implements IsSerializable, Serializable {
                        @JsonProperty("title") String title,
                        @JsonProperty("user") GitHubUser user,
                        @JsonProperty("labels") List<GitHubLabel> labels,
+                       @JsonProperty("htmlUrl") String htmlUrl,
                        @JsonProperty("state") GitHubState state,
                        @JsonProperty("locked") boolean locked,
                        @JsonProperty("assignee") @Nullable GitHubUser assignee,
@@ -133,6 +136,7 @@ public abstract class GitHubIssue implements IsSerializable, Serializable {
                                          number,
                                          Objects.requireNonNullElse(title, ""),
                                          Objects.requireNonNullElse(user, GitHubUser.empty()),
+                                         Objects.requireNonNullElse(htmlUrl, ""),
                                          Objects.requireNonNullElse(labels, List.of()),
                                          Objects.requireNonNullElse(state, GitHubState.OPEN),
                                          locked,

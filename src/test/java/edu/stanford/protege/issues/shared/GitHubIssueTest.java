@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.time.Instant;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -49,6 +50,8 @@ class GitHubIssueTest {
 
     private static final GitHubStateReason STATE_REASON = GitHubStateReason.COMPLETED;
 
+    protected static final String HTML_URL = "https://example.org/html/issue";
+
     @Autowired
     private JacksonTester<GitHubIssue> tester;
 
@@ -83,7 +86,7 @@ class GitHubIssueTest {
                 NUMBER,
                 TITLE,
                 GitHubUserTest.getUser(),
-                List.of(),
+                List.of(), HTML_URL,
                 STATE,
                 LOCKED,
                 GitHubUserTest.getUser(),
@@ -107,6 +110,7 @@ class GitHubIssueTest {
         assertThat(content).hasJsonPathStringValue("title", TITLE);
         assertThat(content).hasJsonPathValue("assignee");
         assertThat(content).hasJsonPathArrayValue("assignees");
+        assertThat(content).hasJsonPathStringValue("html_url", HTML_URL);
 
 
     }
