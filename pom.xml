@@ -98,7 +98,7 @@
                 <version>1.0.1</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <moduleName>edu.stanford.protege.issues</moduleName>
+                    <moduleName>edu.stanford.protege.github.issues</moduleName>
                 </configuration>
             </plugin>
         </plugins>
