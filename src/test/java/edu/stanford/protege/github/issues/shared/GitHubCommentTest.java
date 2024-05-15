@@ -1,6 +1,7 @@
 package edu.stanford.protege.github.issues.shared;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
+import edu.stanford.protege.github.shared.GitHubUser;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJson;
@@ -44,7 +45,7 @@ public class GitHubCommentTest {
 
     @Test
     public void testGitHubCommentProperties() {
-        var user = GitHubUser.empty();
+        var user = GitHubTestUser.getTestUser();
 
         var comment = getComment(user);
 
@@ -113,7 +114,7 @@ public class GitHubCommentTest {
         assertThat(comment.url()).isEqualTo(URL);
         assertThat(comment.htmlUrl()).isEqualTo(HTML_URL);
         assertThat(comment.body()).isEqualTo(BODY);
-        assertThat(comment.user()).isEqualTo(GitHubUserTest.getUser());
+        assertThat(comment.user()).isEqualTo(GitHubTestUser.getTestUser());
         assertThat(comment.createdAt()).isEqualTo(CREATED_AT);
         assertThat(comment.updatedAt()).isEqualTo(UPDATED_AT);
         assertThat(comment.issueUrl()).isEqualTo(ISSUE_URL);
@@ -122,7 +123,7 @@ public class GitHubCommentTest {
 
     @Test
     public void shouldWriteJson() throws IOException {
-        var comment = getComment(GitHubUserTest.getUser());
+        var comment = getComment(GitHubUser.empty());
         var content = tester.write(comment);
         assertThat(content).hasJsonPathNumberValue("id", ID);
         assertThat(content).hasJsonPathStringValue("node_id", NODE_ID);

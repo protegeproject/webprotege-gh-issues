@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 import com.google.auto.value.extension.serializable.SerializableAutoValue;
 import com.google.gwt.user.client.rpc.IsSerializable;
+import edu.stanford.protege.github.shared.GitHubUser;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

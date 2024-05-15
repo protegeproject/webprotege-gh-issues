@@ -1,5 +1,6 @@
 package edu.stanford.protege.github.issues.shared;
 
+import edu.stanford.protege.github.shared.GitHubUser;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJson;
@@ -42,13 +43,15 @@ class GitHubIssueTest {
 
     private static final Instant UPDATED_AT = Instant.parse("2011-04-22T13:33:48Z");
 
-    private static final GitHubUser CLOSED_BY = GitHubUserTest.getUser();
+    private static final GitHubUser CLOSED_BY = GitHubTestUser.getTestUser();
 
     private static final GitHubAuthorAssociation AUTHOR_ASSOCIATION = GitHubAuthorAssociation.COLLABORATOR;
 
     private static final GitHubStateReason STATE_REASON = GitHubStateReason.COMPLETED;
 
     protected static final String HTML_URL = "https://example.org/html/issue";
+
+
 
     @Autowired
     private JacksonTester<GitHubIssue> tester;
@@ -83,18 +86,18 @@ class GitHubIssueTest {
                 NODE_ID,
                 NUMBER,
                 TITLE,
-                GitHubUserTest.getUser(),
+                GitHubTestUser.getTestUser(),
                 List.of(), HTML_URL,
                 STATE,
                 LOCKED,
-                GitHubUserTest.getUser(),
-                List.of(GitHubUserTest.getUser()),
+                GitHubTestUser.getTestUser(),
+                List.of(GitHubTestUser.getTestUser()),
                 GitHubMilestoneTest.getMilestone(),
                 COMMENTS,
                 CREATED_AT,
                 UPDATED_AT,
                 CLOSED_AT,
-                GitHubUserTest.getUser(),
+                GitHubTestUser.getTestUser(),
                 AUTHOR_ASSOCIATION,
                 ACTIVE_LOCK_REASON,
                 BODY,

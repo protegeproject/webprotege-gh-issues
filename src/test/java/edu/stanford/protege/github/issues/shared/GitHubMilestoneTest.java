@@ -1,6 +1,8 @@
 package edu.stanford.protege.github.issues.shared;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
+import edu.stanford.protege.github.shared.GitHubUser;
+import edu.stanford.protege.github.shared.GitHubUserType;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJson;
@@ -29,8 +31,6 @@ public class GitHubMilestoneTest {
 
     protected static final String DESCRIPTION = "Description of Milestone 1";
 
-    protected static final String NODE_ID = "node456";
-
     protected static final long ID = 1L;
 
     protected static final int NUMBER = 42;
@@ -39,12 +39,25 @@ public class GitHubMilestoneTest {
 
     protected static final int CLOSED_ISSUES = 2;
 
-    protected static final GitHubUser CREATOR = GitHubUserTest.getUser();
+    protected static final String NODE_ID = "MDQ6VXNlcjE=";
+
+    protected static final String LOGIN = "octocat";
+
+    protected static final String AVATAR_URL = "https://github.com/images/error/octocat_happy.gif";
+
+    protected static final String URL = "https://api.github.com/users/octocat";
+
+    protected static final String HTML_URL = "https://github.com/octocat";
+
+    protected static final GitHubUser CREATOR = getUser();
 
     @Autowired
     private JacksonTester<GitHubMilestone> tester;
 
 
+    protected static GitHubUser getUser() {
+        return GitHubUser.get(LOGIN, 1, NODE_ID, AVATAR_URL, URL, HTML_URL, GitHubUserType.USER, false);
+    }
 
 
     @Test

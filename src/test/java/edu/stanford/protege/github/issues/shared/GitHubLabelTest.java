@@ -32,7 +32,7 @@ class GitHubLabelTest {
 
     @Test
     void shouldParseJson() throws IOException {
-        try (var inputStream = GitHubUserTest.class.getResourceAsStream("/label.json")) {
+        try (var inputStream = GitHubLabelTest.class.getResourceAsStream("/label.json")) {
            var content = tester.read(inputStream);
            var label = content.getObject();
            assertThat(label.id()).isEqualTo(ID);
