@@ -48,11 +48,11 @@ public abstract class GitHubLabel implements IsSerializable {
                                   @JsonProperty("description") @Nullable String description) {
         return new AutoValue_GitHubLabel(
                 id,
-                Objects.requireNonNullElse(nodeId, ""),
-                Objects.requireNonNullElse(url, ""),
-                Objects.requireNonNullElse(name, ""),
-                Objects.requireNonNullElse(color, ""),
+                Helper.requireNonNullOrElse(nodeId, ""),
+                Helper.requireNonNullOrElse(url, ""),
+                Helper.requireNonNullOrElse(name, ""),
+                Helper.requireNonNullOrElse(color, ""),
                 isDefault,
-                Objects.requireNonNullElse(description, ""));
+                Helper.requireNonNullOrElse(description, ""));
     }
 }

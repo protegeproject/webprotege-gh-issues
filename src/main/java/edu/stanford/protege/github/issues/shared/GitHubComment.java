@@ -63,15 +63,15 @@ public abstract class GitHubComment implements IsSerializable {
                                     @JsonProperty("author_association") GitHubAuthorAssociation authorAssociation) {
         return new AutoValue_GitHubComment(
                 id,
-                Objects.requireNonNullElse(nodeId, ""),
-                Objects.requireNonNullElse(url, ""),
-                Objects.requireNonNullElse(htmlUrl, ""),
-                Objects.requireNonNullElse(body, ""),
-                Objects.requireNonNullElse(user, GitHubUser.empty()),
-                Objects.requireNonNullElse(createdAt, Instant.EPOCH),
-                Objects.requireNonNullElse(updatedAt, Instant.EPOCH),
-                Objects.requireNonNullElse(issueUrl, ""),
-                Objects.requireNonNullElse(authorAssociation, GitHubAuthorAssociation.NONE)
+                Helper.requireNonNullOrElse(nodeId, ""),
+                Helper.requireNonNullOrElse(url, ""),
+                Helper.requireNonNullOrElse(htmlUrl, ""),
+                Helper.requireNonNullOrElse(body, ""),
+                Helper.requireNonNullOrElse(user, GitHubUser.empty()),
+                Helper.requireNonNullOrElse(createdAt, Instant.EPOCH),
+                Helper.requireNonNullOrElse(updatedAt, Instant.EPOCH),
+                Helper.requireNonNullOrElse(issueUrl, ""),
+                Helper.requireNonNullOrElse(authorAssociation, GitHubAuthorAssociation.NONE)
         );
     }
 
