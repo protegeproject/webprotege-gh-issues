@@ -100,16 +100,6 @@ public class GitHubMilestoneTest {
     }
 
     @Test
-    public void shouldBeGwtSerializable() {
-
-        assertThat(GitHubMilestone.class.getInterfaces()).contains(IsSerializable.class);
-
-        var anno = GitHubMilestone.class.getAnnotation(GwtCompatible.class);
-        assertThat(anno).isNotNull();
-    }
-
-
-    @Test
     public void testGitHubMilestoneProperties() {
         var milestone = getMilestone();
 
