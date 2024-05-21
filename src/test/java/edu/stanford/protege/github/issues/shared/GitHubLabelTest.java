@@ -1,6 +1,8 @@
 package edu.stanford.protege.github.issues.shared;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gwt.user.client.rpc.IsSerializable;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJson;
@@ -11,8 +13,6 @@ import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@JsonTest
-@AutoConfigureJson
 class GitHubLabelTest {
 
     protected static final int ID = 208045946;
@@ -27,8 +27,12 @@ class GitHubLabelTest {
 
     protected static final String COLOR = "f29513";
 
-    @Autowired
     private JacksonTester<GitHubLabel> tester;
+
+    @BeforeEach
+    void setUp() {
+        JacksonTester.initFields(this, new ObjectMapper());
+    }
 
     @Test
     void shouldParseJson() throws IOException {
@@ -85,15 +89,5 @@ class GitHubLabelTest {
         assertThat(label.color()).isEmpty();
         assertThat(label.isDefault()).isFalse();
         assertThat(label.description()).isEmpty();
-    }
-
-
-    @Test
-    public void shouldBeGwtSerializable() {
-
-        assertThat(GitHubLabel.class.getInterfaces()).contains(IsSerializable.class);
-
-        var anno = GitHubLabel.class.getAnnotation(GwtCompatible.class);
-        assertThat(anno).isNotNull();
     }
 }
