@@ -59,7 +59,7 @@ public abstract class GitHubReactions implements IsSerializable {
                                       @JsonProperty("heart") int heart,
                                       @JsonProperty("rocket") int rocket,
                                       @JsonProperty("eyes") int eyes) {
-        return new AutoValue_GitHubReactions(Helper.requireNonNullOrElse(url, ""),
+        return new AutoValue_GitHubReactions(Objects.requireNonNullElse(url, ""),
                                              totalCount,
                                              plus1,
                                              minus1,

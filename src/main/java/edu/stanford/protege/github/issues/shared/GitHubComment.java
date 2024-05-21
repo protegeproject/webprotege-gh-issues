@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 import com.google.gwt.user.client.rpc.IsSerializable;
-import edu.stanford.protege.github.shared.GitHubUser;
+import edu.stanford.protege.github.GitHubUser;
 
 import javax.annotation.Nonnull;
 import java.time.Instant;
@@ -65,15 +65,15 @@ public abstract class GitHubComment implements IsSerializable {
                                     @JsonProperty("author_association") GitHubAuthorAssociation authorAssociation) {
         return new AutoValue_GitHubComment(
                 id,
-                Helper.requireNonNullOrElse(nodeId, ""),
-                Helper.requireNonNullOrElse(url, ""),
-                Helper.requireNonNullOrElse(htmlUrl, ""),
-                Helper.requireNonNullOrElse(body, ""),
-                Helper.requireNonNullOrElse(user, GitHubUser.empty()),
-                Helper.requireNonNullOrElse(createdAt, Instant.EPOCH),
-                Helper.requireNonNullOrElse(updatedAt, Instant.EPOCH),
-                Helper.requireNonNullOrElse(issueUrl, ""),
-                Helper.requireNonNullOrElse(authorAssociation, GitHubAuthorAssociation.NONE)
+                Objects.requireNonNullElse(nodeId, ""),
+                Objects.requireNonNullElse(url, ""),
+                Objects.requireNonNullElse(htmlUrl, ""),
+                Objects.requireNonNullElse(body, ""),
+                Objects.requireNonNullElse(user, GitHubUser.empty()),
+                Objects.requireNonNullElse(createdAt, Instant.EPOCH),
+                Objects.requireNonNullElse(updatedAt, Instant.EPOCH),
+                Objects.requireNonNullElse(issueUrl, ""),
+                Objects.requireNonNullElse(authorAssociation, GitHubAuthorAssociation.NONE)
         );
     }
 

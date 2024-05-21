@@ -1,7 +1,7 @@
 package edu.stanford.protege.github.issues.shared;
 
-import edu.stanford.protege.github.shared.GitHubUser;
-import edu.stanford.protege.github.shared.GitHubUserType;
+import edu.stanford.protege.github.GitHubUser;
+import edu.stanford.protege.github.GitHubUserType;
 
 /**
  * Matthew Horridge

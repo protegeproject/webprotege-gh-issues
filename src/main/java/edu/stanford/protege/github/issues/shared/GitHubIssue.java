@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 import com.google.auto.value.extension.serializable.SerializableAutoValue;
 import com.google.gwt.user.client.rpc.IsSerializable;
-import edu.stanford.protege.github.shared.GitHubUser;
+import edu.stanford.protege.github.GitHubUser;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -134,27 +134,27 @@ public abstract class GitHubIssue implements IsSerializable, Serializable {
                        @JsonProperty("body") String body,
                        @JsonProperty("reactions") GitHubReactions reactions,
                        @JsonProperty("state_reason") @Nullable GitHubStateReason stateReason) {
-        return new AutoValue_GitHubIssue(Helper.requireNonNullOrElse(url, ""),
+        return new AutoValue_GitHubIssue(Objects.requireNonNullElse(url, ""),
                                          id,
-                                         Helper.requireNonNullOrElse(nodeId, ""),
+                                         Objects.requireNonNullElse(nodeId, ""),
                                          number,
-                                         Helper.requireNonNullOrElse(title, ""),
-                                         Helper.requireNonNullOrElse(user, GitHubUser.empty()),
-                                         Helper.requireNonNullOrElse(htmlUrl, ""),
-                                         Helper.requireNonNullOrElse(labels, Collections.emptyList()),
-                                         Helper.requireNonNullOrElse(state, GitHubState.OPEN),
+                                         Objects.requireNonNullElse(title, ""),
+                                         Objects.requireNonNullElse(user, GitHubUser.empty()),
+                                         Objects.requireNonNullElse(htmlUrl, ""),
+                                         Objects.requireNonNullElse(labels, Collections.emptyList()),
+                                         Objects.requireNonNullElse(state, GitHubState.OPEN),
                                          locked,
                                          assignee,
-                                         Helper.requireNonNullOrElse(assignees, Collections.emptyList()),
+                                         Objects.requireNonNullElse(assignees, Collections.emptyList()),
                                          milestone,
                                          comments,
-                                         Helper.requireNonNullOrElse(createdAt, Instant.EPOCH),
-                                         Helper.requireNonNullOrElse(updatedAt, Instant.EPOCH),
-                                         Helper.requireNonNullOrElse(closedAt, Instant.EPOCH),
+                                         Objects.requireNonNullElse(createdAt, Instant.EPOCH),
+                                         Objects.requireNonNullElse(updatedAt, Instant.EPOCH),
+                                         Objects.requireNonNullElse(closedAt, Instant.EPOCH),
                                          closedBy,
-                                         Helper.requireNonNullOrElse(authorAssociation, GitHubAuthorAssociation.NONE),
-                                         Helper.requireNonNullOrElse(activeLockReason, ""),
-                                         Helper.requireNonNullOrElse(body, ""),
+                                         Objects.requireNonNullElse(authorAssociation, GitHubAuthorAssociation.NONE),
+                                         Objects.requireNonNullElse(activeLockReason, ""),
+                                         Objects.requireNonNullElse(body, ""),
                                          reactions,
                                          stateReason);
 

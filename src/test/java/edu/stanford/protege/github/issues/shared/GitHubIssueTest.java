@@ -1,6 +1,6 @@
 package edu.stanford.protege.github.issues.shared;
 
-import edu.stanford.protege.github.shared.GitHubUser;
+import edu.stanford.protege.github.GitHubUser;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJson;

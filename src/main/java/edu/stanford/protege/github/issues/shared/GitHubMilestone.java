@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 import com.google.gwt.user.client.rpc.IsSerializable;
-import edu.stanford.protege.github.shared.GitHubUser;
+import edu.stanford.protege.github.GitHubUser;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -92,16 +92,16 @@ public abstract class GitHubMilestone implements IsSerializable {
                                @JsonProperty("due_on") @Nullable Instant dueOn,
                                @JsonProperty("closed_at") @Nullable Instant closedAt) {
         return new AutoValue_GitHubMilestone(
-                Helper.requireNonNullOrElse(url, ""),
+                Objects.requireNonNullElse(url, ""),
                 id,
-                Helper.requireNonNullOrElse(nodeId, ""),
+                Objects.requireNonNullElse(nodeId, ""),
                 number,
-                Helper.requireNonNullOrElse(title, ""),
-                Helper.requireNonNullOrElse(description, ""),
-                Helper.requireNonNullOrElse(creator, GitHubUser.empty()),
-                Helper.requireNonNullOrElse(openIssues, 0),
+                Objects.requireNonNullElse(title, ""),
+                Objects.requireNonNullElse(description, ""),
+                Objects.requireNonNullElse(creator, GitHubUser.empty()),
+                Objects.requireNonNullElse(openIssues, 0),
                 closedIssues,
-                Helper.requireNonNullOrElse(state, GitHubState.OPEN),
+                Objects.requireNonNullElse(state, GitHubState.OPEN),
                 createdAt,
                 updatedAt,
                 dueOn,
