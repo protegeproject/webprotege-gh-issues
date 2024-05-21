@@ -1,6 +1,5 @@
 package edu.stanford.protege.github.issues;
 
-import edu.stanford.protege.github.issues.GitHubIssuesChangedEvent;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +15,7 @@ import org.springframework.boot.test.json.JacksonTester;
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @JsonTest
 @AutoConfigureJson
