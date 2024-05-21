@@ -10,7 +10,7 @@
     </parent>
     <groupId>edu.stanford.protege</groupId>
     <artifactId>webprotege-gh-issues</artifactId>
-    <version>0.9.2</version>
+    <version>2.0.0</version>
 
     <name>webprotege-gh-issues</name>
     <description>webprotege-gh-issues</description>
