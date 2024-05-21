@@ -13,53 +13,52 @@ import java.util.Objects;
  * Stanford Center for Biomedical Informatics Research
  * 2023-07-14
  */
-@AutoValue
-@GwtCompatible(serializable = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public abstract class GitHubReactions implements IsSerializable {
-
-    @JsonProperty("url")
-    public abstract String url();
-
-    @JsonProperty("total_count")
-    public abstract int totalCount();
-
-    @JsonProperty("+1")
-    public abstract int plus1();
-
-    @JsonProperty("-1")
-    public abstract int minus1();
-
-    @JsonProperty("laugh")
-    public abstract int laugh();
-
-    @JsonProperty("hooray")
-    public abstract int hooray();
-
-    @JsonProperty("confused")
-    public abstract int confused();
-
-    @JsonProperty("heart")
-    public abstract int heart();
-
-    @JsonProperty("rocket")
-    public abstract int rocket();
-
-    @JsonProperty("eyes")
-    public abstract int eyes();
-
-    @JsonCreator
-    public static GitHubReactions get(@JsonProperty("url") String url,
+public record GitHubReactions(@JsonProperty("url") String url,
                                       @JsonProperty("total_count") int totalCount,
-                                      @JsonProperty("plus1") int plus1,
-                                      @JsonProperty("minus1") int minus1,
+                                      @JsonProperty("+1") int plus1,
+                                      @JsonProperty("-1") int minus1,
                                       @JsonProperty("laugh") int laugh,
                                       @JsonProperty("hooray") int hooray,
                                       @JsonProperty("confused") int confused,
                                       @JsonProperty("heart") int heart,
                                       @JsonProperty("rocket") int rocket,
                                       @JsonProperty("eyes") int eyes) {
-        return new AutoValue_GitHubReactions(Objects.requireNonNullElse(url, ""),
+
+    public GitHubReactions(@JsonProperty("url") String url,
+                           @JsonProperty("total_count") int totalCount,
+                           @JsonProperty("+1") int plus1,
+                           @JsonProperty("-1") int minus1,
+                           @JsonProperty("laugh") int laugh,
+                           @JsonProperty("hooray") int hooray,
+                           @JsonProperty("confused") int confused,
+                           @JsonProperty("heart") int heart,
+                           @JsonProperty("rocket") int rocket,
+                           @JsonProperty("eyes") int eyes) {
+        this.url = Objects.requireNonNullElse(url, "");
+        this.totalCount = totalCount;
+        this.plus1 = plus1;
+        this.minus1 = minus1;
+        this.laugh = laugh;
+        this.hooray = hooray;
+        this.confused = confused;
+        this.heart = heart;
+        this.rocket = rocket;
+        this.eyes = eyes;
+    }
+
+    @JsonCreator
+    public static GitHubReactions get(@JsonProperty("url") String url,
+                                      @JsonProperty("total_count") int totalCount,
+                                      @JsonProperty("+1") int plus1,
+                                      @JsonProperty("-1") int minus1,
+                                      @JsonProperty("laugh") int laugh,
+                                      @JsonProperty("hooray") int hooray,
+                                      @JsonProperty("confused") int confused,
+                                      @JsonProperty("heart") int heart,
+                                      @JsonProperty("rocket") int rocket,
+                                      @JsonProperty("eyes") int eyes) {
+        return new GitHubReactions(url,
                                              totalCount,
                                              plus1,
                                              minus1,
