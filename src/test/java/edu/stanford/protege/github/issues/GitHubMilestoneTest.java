@@ -1,6 +1,5 @@
-package edu.stanford.protege.github.issues.shared;
+package edu.stanford.protege.github.issues;
 
-import com.google.gwt.user.client.rpc.IsSerializable;
 import edu.stanford.protege.github.GitHubUser;
 import edu.stanford.protege.github.GitHubUserType;
 import org.junit.jupiter.api.Test;

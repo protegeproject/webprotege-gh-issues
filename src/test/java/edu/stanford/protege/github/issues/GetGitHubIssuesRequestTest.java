@@ -1,4 +1,4 @@
-package edu.stanford.protege.github.issues.server;
+package edu.stanford.protege.github.issues;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import edu.stanford.protege.webprotege.common.ProjectId;

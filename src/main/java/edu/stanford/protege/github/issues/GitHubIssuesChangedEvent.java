@@ -1,4 +1,4 @@
-package edu.stanford.protege.github.issues.server;
+package edu.stanford.protege.github.issues;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

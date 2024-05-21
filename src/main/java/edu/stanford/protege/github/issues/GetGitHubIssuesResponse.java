@@ -1,9 +1,8 @@
-package edu.stanford.protege.github.issues.server;
+package edu.stanford.protege.github.issues;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import edu.stanford.protege.github.issues.shared.GitHubIssue;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import edu.stanford.protege.webprotege.common.Response;
 import org.semanticweb.owlapi.model.OWLEntity;

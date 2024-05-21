@@ -1,4 +1,4 @@
-package edu.stanford.protege.github.issues.shared;
+package edu.stanford.protege.github.issues;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

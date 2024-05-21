@@ -1,4 +1,4 @@
-package edu.stanford.protege.github.issues.shared;
+package edu.stanford.protege.github.issues;
 
 import edu.stanford.protege.github.GitHubUser;
 import org.junit.jupiter.api.Test;

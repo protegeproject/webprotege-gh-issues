@@ -1,5 +1,6 @@
-package edu.stanford.protege.github.issues.server;
+package edu.stanford.protege.github.issues;
 
+import edu.stanford.protege.github.issues.GitHubIssuesChangedEvent;
 import edu.stanford.protege.webprotege.common.EventId;
 import edu.stanford.protege.webprotege.common.ProjectId;
 import org.junit.jupiter.api.BeforeEach;
