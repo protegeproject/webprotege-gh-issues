@@ -2,6 +2,7 @@ package edu.stanford.protege.github.issues.shared;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 import com.google.auto.value.extension.serializable.SerializableAutoValue;
@@ -12,6 +13,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -24,6 +26,7 @@ import java.util.Optional;
 @AutoValue
 @SerializableAutoValue
 @GwtCompatible(serializable = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class GitHubIssue implements IsSerializable, Serializable {
 
     public abstract @JsonProperty("url") String url();
@@ -138,11 +141,11 @@ public abstract class GitHubIssue implements IsSerializable, Serializable {
                                          Helper.requireNonNullOrElse(title, ""),
                                          Helper.requireNonNullOrElse(user, GitHubUser.empty()),
                                          Helper.requireNonNullOrElse(htmlUrl, ""),
-                                         Helper.requireNonNullOrElse(labels, List.of()),
+                                         Helper.requireNonNullOrElse(labels, Collections.emptyList()),
                                          Helper.requireNonNullOrElse(state, GitHubState.OPEN),
                                          locked,
                                          assignee,
-                                         Helper.requireNonNullOrElse(assignees, List.of()),
+                                         Helper.requireNonNullOrElse(assignees, Collections.emptyList()),
                                          milestone,
                                          comments,
                                          Helper.requireNonNullOrElse(createdAt, Instant.EPOCH),

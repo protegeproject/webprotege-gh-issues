@@ -1,5 +1,6 @@
 package edu.stanford.protege.github.issues.shared;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -7,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Stanford Center for Biomedical Informatics Research
  * 2023-07-15
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public enum GitHubReaction {
 
     @JsonProperty("+1")

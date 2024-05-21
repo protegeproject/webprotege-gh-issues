@@ -1,6 +1,7 @@
 package edu.stanford.protege.github.issues.shared;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.auto.value.AutoValue;
 import com.google.gwt.user.client.rpc.IsSerializable;
@@ -19,6 +20,7 @@ import java.util.Optional;
  */
 @AutoValue
 @GwtCompatible(serializable = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class GitHubMilestone implements IsSerializable {
 
     public abstract @JsonProperty("url") String url();
