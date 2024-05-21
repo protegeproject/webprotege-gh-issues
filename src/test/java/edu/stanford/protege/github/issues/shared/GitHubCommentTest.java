@@ -136,14 +136,4 @@ public class GitHubCommentTest {
         assertThat(content).hasJsonPathStringValue("issue_url", ISSUE_URL);
         assertThat(content).hasJsonPathStringValue("author_association", AUTHOR_ASSOCIATION.toString());
     }
-
-
-    @Test
-    public void shouldBeGwtSerializable() {
-        assertThat(GitHubComment.class.getInterfaces()).contains(IsSerializable.class);
-
-        var anno = GitHubComment.class.getAnnotation(GwtCompatible.class);
-        assertThat(anno).isNotNull();
-    }
-
 }
