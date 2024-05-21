@@ -3,7 +3,6 @@ package edu.stanford.protege.github.issues;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.gwt.user.client.rpc.IsSerializable;
 
 import javax.annotation.Nullable;
 import java.util.Objects;
@@ -20,7 +19,7 @@ public record GitHubLabel(@JsonProperty("id") long id,
                           @JsonProperty("name") @Nullable String name,
                           @JsonProperty("color") @Nullable String color,
                           @JsonProperty("default") boolean isDefault,
-                          @JsonProperty("description") @Nullable String description) implements IsSerializable {
+                          @JsonProperty("description") @Nullable String description) {
 
     public GitHubLabel(@JsonProperty("id") long id,
                        @JsonProperty("node_id") @Nullable String nodeId,
