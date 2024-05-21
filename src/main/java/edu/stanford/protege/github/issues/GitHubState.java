@@ -8,7 +8,6 @@ import com.google.gwt.user.client.rpc.IsSerializable;
  * Stanford Center for Biomedical Informatics Research
  * 2023-07-11
  */
-@GwtCompatible(serializable = true)
 public enum GitHubState implements IsSerializable {
 
     @JsonProperty("open")
